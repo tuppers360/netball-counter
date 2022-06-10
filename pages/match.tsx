@@ -27,6 +27,9 @@ const Match: NextPage = () => {
           ...counter,
           countHit: counter.countHit + 1,
           setCountHit: counter.countHit,
+          percentage: `${
+            (counter.countHit / (counter.countHit + counter.countMiss)) * 100
+          }%`,
         };
     });
     setCountersData(newCountersData);
@@ -39,6 +42,9 @@ const Match: NextPage = () => {
         return {
           ...counter,
           countMiss: counter.countMiss + 1,
+          percentage: `${
+            (counter.countHit / (counter.countHit + counter.countMiss)) * 100
+          }%`,
         };
     });
     setCountersData(newCountersData);
