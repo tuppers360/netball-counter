@@ -59,7 +59,7 @@ const Match: NextPage = () => {
 
   useEffect(() => {
     console.log(countersData);
-  }, [handleHit, handleMiss]);
+  }, [handleHit, handleMiss, countersData]);
 
   return (
     <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center">
