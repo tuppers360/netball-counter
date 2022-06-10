@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Counter from './components/counter';
+import MatchScoreCard from './components/matchscorecard';
 import { NextPage } from 'next';
 
 interface CountersProps {
@@ -14,6 +15,8 @@ const Match: NextPage = () => {
   const [countersData, setCountersData] = useState<Array<CountersProps>>([]);
   const [id, setId] = useState(1);
   const [updateId, setUpdateId] = useState<number>();
+  const [matchScore, setMatchScore] = useState<number>(0);
+  const [matchScoreOpposition, setMatchScoreOpposition] = useState<number>(0);
 
   const generateId = () => {
     setId(id + 1);
@@ -25,6 +28,7 @@ const Match: NextPage = () => {
       if (counter.id !== id) return counter;
       else {
         setUpdateId(counter.id);
+        setMatchScore(matchScore + 1);
         return {
           ...counter,
           countHit: counter.countHit + 1,
@@ -57,6 +61,10 @@ const Match: NextPage = () => {
     setCountersData(newCountersData);
   };
 
+  const handleOpposotionHit = () => {
+    setMatchScoreOpposition(matchScoreOpposition + 1);
+  };
+
   const addShooter = (id: number) => {
     setCountersData([
       ...countersData,
@@ -66,7 +74,7 @@ const Match: NextPage = () => {
 
   return (
     <main className="py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-6xl font-extrabold">
           The&nbsp;
           <a
@@ -85,6 +93,14 @@ const Match: NextPage = () => {
             Add Shooter to Match
           </button>
         </div>
+        <div>
+          <MatchScoreCard
+            matchScore={matchScore}
+            matchScoreOpposition={matchScoreOpposition}
+            handleOpposotionHit={handleOpposotionHit}
+          />
+        </div>
+
         <div className="mt-10">
           <ul
             role="list"
