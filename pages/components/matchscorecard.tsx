@@ -27,7 +27,7 @@ function MatchScoreCard({
         <dd className="mt-1 text-3xl font-semibold text-gray-900">
           {matchScoreOpposition}
         </dd>
-        <dd className="mt-2 flex">
+        <dd className="mt-2 flex justify-center">
           <button
             onClick={handleOpposotionHit}
             type="button"
