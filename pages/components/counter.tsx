@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
 import { faBasketball } from '@fortawesome/free-solid-svg-icons';
 
 function Counter({
@@ -31,22 +30,33 @@ function Counter({
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
             alt=""
           />
-          <h3 className="mt-6 text-gray-900 text-sm font-medium">{name}</h3>
-          <dl className="mt-1 flex-grow flex flex-col justify-between">
-            <dt className="sr-only">Hit</dt>
-            <dd className="text-gray-500 text-sm">{countHit}</dd>
-            <dt className="sr-only">Miss</dt>
-            <dd className="mt-3">
-              <span className="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
+          <h3 className="mt-6 text-gray-900 text-lg font-bold">{name}</h3>
+
+          <div className="text-sm space-y-2 font-medium">
+            <div>Match Shooting Stats:</div>
+            <div>
+              Hit:
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-green-100 text-green-800 mx-2">
+                {countHit}
+              </span>
+              Miss:
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-100 text-red-800 ml-2">
                 {countMiss}
               </span>
-            </dd>
-          </dl>
-          <div>Match Shooting Stats:</div>
-          <div>Hit: {countHit}</div>
-          <div>Miss: {countMiss}</div>
-          <div>Total: {countHit + countMiss}</div>
-          <div>Hit Percentage: {percentage}</div>
+            </div>
+            <div>
+              Total:
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800 ml-2">
+                {countHit + countMiss}
+              </span>
+            </div>
+            <div>
+              Hit Percentage:
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-100 text-gray-800 ml-2">
+                {percentage}
+              </span>
+            </div>
+          </div>
         </div>
         <div className="-mt-px flex divide-x divide-gray-200">
           <div className="w-0 flex-1 flex">
