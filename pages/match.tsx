@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import Counter from './components/counter';
 import { NextPage } from 'next';
@@ -13,6 +13,7 @@ interface CountersProps {
 const Match: NextPage = () => {
   const [countersData, setCountersData] = useState<Array<CountersProps>>([]);
   const [id, setId] = useState(1);
+  const [updateId, setUpdateId] = useState<number>();
 
   const generateId = () => {
     setId(id + 1);
@@ -22,15 +23,18 @@ const Match: NextPage = () => {
   const handleHit = (id: number) => {
     const newCountersData = countersData.map((counter) => {
       if (counter.id !== id) return counter;
-      else
+      else {
+        setUpdateId(counter.id);
         return {
           ...counter,
           countHit: counter.countHit + 1,
-          setCountHit: counter.countHit,
-          percentage: `${
-            (counter.countHit / (counter.countHit + counter.countMiss)) * 100
-          }%`,
+          percentage: `${(
+            ((counter.countHit + 1) /
+              (counter.countHit + 1 + counter.countMiss)) *
+            100
+          ).toFixed(2)}%`,
         };
+      }
     });
     setCountersData(newCountersData);
   };
@@ -38,14 +42,17 @@ const Match: NextPage = () => {
   const handleMiss = (id: number) => {
     const newCountersData = countersData.map((counter) => {
       if (counter.id !== id) return counter;
-      else
+      else {
+        setUpdateId(counter.id);
         return {
           ...counter,
           countMiss: counter.countMiss + 1,
-          percentage: `${
-            (counter.countHit / (counter.countHit + counter.countMiss)) * 100
-          }%`,
+          percentage: `${(
+            (counter.countHit / (counter.countHit + counter.countMiss + 1)) *
+            100
+          ).toFixed(2)}%`,
         };
+      }
     });
     setCountersData(newCountersData);
   };
@@ -56,10 +63,6 @@ const Match: NextPage = () => {
       { id: generateId(), countHit: 0, countMiss: 0, percentage: '0%' },
     ]);
   };
-
-  useEffect(() => {
-    console.log(countersData);
-  }, [handleHit, handleMiss, countersData]);
 
   return (
     <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center">
