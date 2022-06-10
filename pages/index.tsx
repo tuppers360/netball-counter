@@ -1,7 +1,7 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center">
+      <main className="flex flex-col items-center justify-center flex-1 w-full text-center">
         <h1 className="text-6xl font-extrabold">
           The&nbsp;
           <a
