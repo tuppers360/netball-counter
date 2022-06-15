@@ -1,12 +1,12 @@
 import * as yup from 'yup';
 
-import { ChangeEvent, ReactEventHandler, useState } from 'react';
-
 import Counter from './components/counter';
 import { ExclamationCircleIcon } from '@heroicons/react/solid';
+import Link from 'next/link';
 import MatchScoreCard from './components/matchscorecard';
 import { NextPage } from 'next';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const schema = yup.object({
@@ -110,12 +110,12 @@ const Match: NextPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-6xl font-extrabold">
           The&nbsp;
-          <a
+          <Link
             className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-emerald-700"
-            href="https://nextjs.org"
+            href="/"
           >
             Netball Counter
-          </a>
+          </Link>
         </h1>
         <div className="mt-10">
           <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
