@@ -1,16 +1,16 @@
-import * as yup from 'yup';
+import * as yup from "yup";
 
-import Counter from './components/counter';
-import { ExclamationCircleIcon } from '@heroicons/react/solid';
-import Link from 'next/link';
-import MatchScoreCard from './components/matchscorecard';
-import { NextPage } from 'next';
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
+import Counter from "./components/counter";
+import { ExclamationCircleIcon } from "@heroicons/react/solid";
+import Link from "next/link";
+import MatchScoreCard from "./components/matchscorecard";
+import { NextPage } from "next";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const schema = yup.object({
-  name: yup.string().required('Please enter players name'),
+  name: yup.string().required("Please enter players name"),
 });
 interface CountersProps {
   id: number;
@@ -87,7 +87,7 @@ const Match: NextPage = () => {
         name: name,
         countHit: 0,
         countMiss: 0,
-        percentage: '0%',
+        percentage: "0%",
       },
     ]);
   };
@@ -107,11 +107,11 @@ const Match: NextPage = () => {
 
   return (
     <main className="py-8">
-      <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <h1 className="text-6xl font-extrabold">
           The&nbsp;
           <Link
-            className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-emerald-700"
+            className="bg-gradient-to-r from-indigo-700 to-emerald-700 bg-clip-text text-transparent"
             href="/"
           >
             Netball Counter
@@ -119,28 +119,28 @@ const Match: NextPage = () => {
         </h1>
         <div className="mt-10">
           <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
-            <div className="flex flex-col max-w-md mx-auto">
+            <div className="mx-auto flex max-w-md flex-col">
               <div className="relative mt-1">
                 <input
                   id="name"
-                  className={`py-3 px-4 block w-full border shadow-sm rounded-md sm:text-sm ${
+                  className={`block w-full rounded-md border py-3 px-4 shadow-sm sm:text-sm ${
                     errors.name
-                      ? `pr-10 border-red-300 text-red-600 dark:text-red-500 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 inset-1`
-                      : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300 text-slate-700'
+                      ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                      : "border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900"
                   }`}
                   type="text"
-                  {...register('name')}
+                  {...register("name")}
                   placeholder="Player Name"
                 />
                 {errors.name && (
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <ExclamationCircleIcon className="w-5 h-5 text-red-600 dark:text-red-500" />
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                    <ExclamationCircleIcon className="h-5 w-5 text-red-600 dark:text-red-500" />
                   </div>
                 )}
               </div>
               {errors && (
                 <p
-                  className="mt-2 text-sm text-left text-red-600 dark:text-red-500"
+                  className="mt-2 text-left text-sm text-red-600 dark:text-red-500"
                   id="email-error"
                 >
                   <span>{errors.name?.message}</span>
@@ -149,7 +149,7 @@ const Match: NextPage = () => {
 
               <button
                 type="submit"
-                className="inline-flex items-center justify-center px-4 py-2 mt-4 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="mt-4 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add Shooter to Match
               </button>

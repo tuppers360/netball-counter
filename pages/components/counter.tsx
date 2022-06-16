@@ -1,7 +1,7 @@
-import { MailIcon, PhoneIcon } from '@heroicons/react/solid';
+import { MailIcon, PhoneIcon } from "@heroicons/react/solid";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBasketball } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBasketball } from "@fortawesome/free-solid-svg-icons";
 
 function Counter({
   id,
@@ -24,40 +24,40 @@ function Counter({
     <>
       <li
         key={id}
-        className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200"
+        className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
       >
-        <div className="w-full flex items-center justify-between p-6 space-x-6">
+        <div className="flex w-full items-center justify-between space-x-6 p-6">
           <div className="flex-1 truncate">
             <div className="flex items-center justify-center space-x-3">
-              <h3 className="text-gray-900 text-lg font-bold truncate">
+              <h3 className="truncate text-lg font-bold text-gray-900">
                 {name}
               </h3>
-              <span className="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">
+              <span className="inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
                 Shooter
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-2 mt-4">
-              <p className="mt-1 text-gray-500 text-sm truncate text-left flex items-center justify-between">
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <p className="mt-1 flex items-center justify-between truncate text-left text-sm text-gray-500">
                 Hit:
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-green-100 text-green-800 mx-2">
+                <span className="mx-2 inline-flex items-center rounded-md bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">
                   {countHit}
                 </span>
               </p>
-              <p className="mt-1 text-gray-500 text-sm truncate text-left flex items-center justify-between">
+              <p className="mt-1 flex items-center justify-between truncate text-left text-sm text-gray-500">
                 Miss:
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-100 text-red-800 ml-2">
+                <span className="ml-2 inline-flex items-center rounded-md bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">
                   {countMiss}
                 </span>
               </p>
-              <p className="mt-1 text-gray-500 text-sm truncate text-left flex items-center justify-between">
+              <p className="mt-1 flex items-center justify-between truncate text-left text-sm text-gray-500">
                 Total:
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800 ml-2">
+                <span className="ml-2 inline-flex items-center rounded-md bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
                   {countHit + countMiss}
                 </span>
               </p>
-              <p className="mt-1 text-gray-500 text-sm truncate text-left flex items-center justify-between">
+              <p className="mt-1 flex items-center justify-between truncate text-left text-sm text-gray-500">
                 %'age':
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-100 text-gray-800 ml-2">
+                <span className="ml-2 inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-sm font-medium text-gray-800">
                   {percentage}
                 </span>
               </p>
@@ -66,29 +66,29 @@ function Counter({
         </div>
         <div>
           <div className="-mt-px flex divide-x divide-gray-200">
-            <div className="w-0 flex-1 flex">
+            <div className="flex w-0 flex-1">
               <button
                 onClick={() => handleHit(id)}
                 type="button"
-                className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm font-medium border border-transparent rounded-bl-lg text-white bg-indigo-700 hover:bg-indigo-800"
+                className="relative inline-flex w-0 flex-1 items-center justify-center rounded-bl-lg border border-transparent bg-indigo-700 py-4 text-sm font-medium text-white hover:bg-indigo-800"
               >
                 <FontAwesomeIcon
                   icon={faBasketball}
-                  className="w-5 h-5"
+                  className="h-5 w-5"
                   aria-hidden="true"
                 />
                 <span className="ml-3">Score</span>
               </button>
             </div>
-            <div className="-ml-px w-0 flex-1 flex text-white">
+            <div className="-ml-px flex w-0 flex-1 text-white">
               <button
                 onClick={() => handleMiss(id)}
                 type="button"
-                className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm font-medium border border-transparent rounded-br-lg text-white bg-emerald-700 hover:bg-emerald-800"
+                className="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent bg-emerald-700 py-4 text-sm font-medium text-white hover:bg-emerald-800"
               >
                 <FontAwesomeIcon
                   icon={faBasketball}
-                  className="w-5 h-5"
+                  className="h-5 w-5"
                   aria-hidden="true"
                 />
 
