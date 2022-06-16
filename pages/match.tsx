@@ -107,7 +107,7 @@ const Match: NextPage = () => {
 
   return (
     <main className="py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
         <h1 className="text-6xl font-extrabold">
           The&nbsp;
           <Link
@@ -119,7 +119,7 @@ const Match: NextPage = () => {
         </h1>
         <div className="mt-10">
           <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
-            <div className="mx-auto flex flex-col max-w-md">
+            <div className="flex flex-col max-w-md mx-auto">
               <div className="relative mt-1">
                 <input
                   id="name"
@@ -140,7 +140,7 @@ const Match: NextPage = () => {
               </div>
               {errors && (
                 <p
-                  className="mt-2 text-sm text-red-600 dark:text-red-500 text-left"
+                  className="mt-2 text-sm text-left text-red-600 dark:text-red-500"
                   id="email-error"
                 >
                   <span>{errors.name?.message}</span>
@@ -149,7 +149,7 @@ const Match: NextPage = () => {
 
               <button
                 type="submit"
-                className="mt-4 inline-flex items-center justify-center px-4 py-2 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="inline-flex items-center justify-center px-4 py-2 mt-4 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Add Shooter to Match
               </button>
